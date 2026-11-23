@@ -8,6 +8,7 @@
             <h1>Hojas &amp; Viñetas</h1>
         </div>
 
+        <% if (usuario) { %>
         <nav>
             <ul>
                 <li class="li-header">
@@ -25,7 +26,13 @@
                 <li class="li-header">
                     <a href="/dashboard/eliminar">Eliminar</a>
                 </li>
+                <li class="li-header">
+                    <form action="/logout" method="post">
+                        <button type="submit" class="btn-logout">Cerrar sesión</button>
+                    </form>
+                </li>
 
             </ul>
         </nav>
+        <% } %>
     </header>

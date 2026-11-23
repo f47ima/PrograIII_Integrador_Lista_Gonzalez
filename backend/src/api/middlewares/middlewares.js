@@ -60,8 +60,23 @@ const validateProduct = (req, res, next) => {
     next(); 
 }
 
+// Middleware de ruta: solo deja pasar a administradores logueados
+const requiereAdmin = (req, res, next) => {
+    if (req.session.usuario) return next();
+    res.redirect("/login");
+}
+
+
+// Middleware de ruta: si ya hay sesion, no tiene sentido mostrar el login
+const soloInvitados = (req, res, next) => {
+    if (req.session.usuario) return res.redirect("/dashboard/principal");
+    next();
+}
+
 export {
     loggerUrl,
     validateId,
-    validateProduct
+    validateProduct,
+    requiereAdmin,
+    soloInvitados
 }
