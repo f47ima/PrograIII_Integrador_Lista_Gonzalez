@@ -16,8 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(session({
     secret: sessionSecret,
     resave: false,
-    saveUninitialized: false,
-    cookie: { httpOnly: true, sameSite: "lax", maxAge: 1000 * 60 * 60 * 4 }
+    saveUninitialized: false
 }));
 // El usuario logueado queda disponible en todas las vistas EJS
 app.use((req, res, next) => {
