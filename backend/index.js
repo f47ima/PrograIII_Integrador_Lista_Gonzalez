@@ -1,7 +1,13 @@
 import express from "express";
 import environments from "./src/api/config/environments.js";
 import connection from "./src/api/database/db.js";
+import cors from "cors";
+import { loggerUrl, validateId, validateProduct } from "./src/api/middlewares/middlewares.js";
+
 const app = express();
+app.use(cors());
+app.use(loggerUrl);
+
 const { port } = environments;
 
 app.use(express.json());
@@ -43,9 +49,9 @@ app.get("/api/products/active", async (req,res) => {
     }
 })
 
-app.get("/api/products/:id", async (req,res) => {
+app.get("/api/products/:id", validateId, async (req,res) => {
     try {
-        const id = req.params.id;
+        const id = req.id;
         const [resultado] = await connection.query("SELECT * FROM products WHERE products.id = ?", [id])
         if (resultado.length === 0){
             return res.status(404).json({message: `No se encontró el producto con id ${id}`});
@@ -62,7 +68,7 @@ app.get("/api/products/:id", async (req,res) => {
     }
 })
 
-app.post("/api/products", async (req,res) => {
+app.post("/api/products", validateProduct, async (req,res) => {
     try {
         const { name, author, image,category, price } = req.body;
         const [resultado] = await connection.query("INSERT INTO products (name, author, image, category, price ) VALUES (?, ?, ?, ?, ?)",[name, author, image,category, price])
@@ -77,7 +83,7 @@ app.post("/api/products", async (req,res) => {
         });        
     }
 })
-app.put("/api/products", async (req, res) => {
+app.put("/api/products", validateProduct, async (req, res) => {
     try {
         const { id, name, author, image, category, price, active } = req.body;
         const [resultado] = await connection.query(
@@ -94,9 +100,9 @@ app.put("/api/products", async (req, res) => {
     }
 });
 
-app.delete("/api/products/:id", async (req, res) => {
+app.delete("/api/products/:id",validateId, async (req, res) => {
     try {
-        const id = req.params.id;
+        const id = req.id;
         const [resultado] = await connection.query("DELETE FROM products WHERE id = ?", [id]);
         if (resultado.affectedRows === 0) {
             return res.status(404).json({ message: `No se encontró el producto con id ${id}` });
