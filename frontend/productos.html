@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Productos | Hojas &amp; Viñetas</title>
+    <link rel="icon" type="image/jpeg" href="img/logo.jpg">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="marca">
+            <img src="img/logo.jpg" alt="Logo Hojas & Viñetas" width="44" height="44">
+            <strong class="marca__nombre">Hojas &amp; Viñetas</strong>
+        </div>
+        <nav class="nav">
+            <a class="nav__link activo" href="productos.html">Productos</a>
+            <a class="nav__link" href="carrito.html">Carrito</a>
+            <a class="nav__link" href="http://localhost:3000/login">Administración</a>
+            <button class="boton-tema" onclick="cambiarTema()">Cambiar tema</button>
+        </nav>
+    </header>
+
+    <main class="contenedor">
+        <div class="encabezado-pagina">
+            <div>
+                <h1 id="saludo"></h1>
+                <p class="texto-suave">Elegí una categoría, la cantidad y agregá al carrito.</p>
+            </div>
+            <a class="btn btn--primario" href="carrito.html">Ver carrito</a>
+        </div>
+
+        <div class="tabs">
+            <button id="tab-libro" class="tab activo" onclick="cambiarCategoria('libro')">Libros</button>
+            <button id="tab-comic" class="tab" onclick="cambiarCategoria('comic')">Cómics</button>
+        </div>
+
+        <p id="mensaje" class="texto-suave"></p>
+        <div id="grilla" class="grilla-productos"></div>
+    </main>
+
+    <footer class="pie">
+        <p><strong>Hojas &amp; Viñetas</strong> - Programación III - UTN</p>
+        <p>Alumnos: Fatima Gonzalez y Nicolas Lista</p>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/productos.js"></script>
+</body>
+</html>

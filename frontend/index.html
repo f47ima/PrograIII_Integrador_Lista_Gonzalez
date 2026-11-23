@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenida | Hojas &amp; Viñetas</title>
+    <link rel="icon" type="image/jpeg" href="img/logo.jpg">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="marca">
+            <img src="img/logo.jpg" alt="Logo Hojas & Viñetas" width="44" height="44">
+            <strong class="marca__nombre">Hojas &amp; Viñetas</strong>
+        </div>
+        <nav class="nav">
+            <a class="nav__link activo" href="index.html">Inicio</a>
+            <a class="nav__link" href="http://localhost:3000/login">Administración</a>
+            <button class="boton-tema" onclick="cambiarTema()">Cambiar tema</button>
+        </nav>
+    </header>
+
+    <main class="contenedor bienvenida">
+        <h1>Bienvenido/a a <span class="resaltado">Hojas &amp; Viñetas</span></h1>
+        <p class="texto-suave">Autoservicio de libros y cómics. Ingresá tu nombre para ver los productos.</p>
+
+        <div class="tarjeta bienvenida__form">
+            <form id="form-nombre">
+                <label for="nombre">¿Cómo te llamás?</label>
+                <input type="text" id="nombre" placeholder="Ingresá tu nombre">
+                <p id="error-nombre" class="error"></p>
+                <button class="btn btn--primario" type="submit">Continuar</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="pie">
+        <p><strong>Hojas &amp; Viñetas</strong> - Programación III - UTN</p>
+        <p>Alumnos: Fatima Gonzalez y Nicolas Lista</p>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/bienvenida.js"></script>
+</body>
+</html>

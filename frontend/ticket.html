@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ticket | Hojas &amp; Viñetas</title>
+    <link rel="icon" type="image/jpeg" href="img/logo.jpg">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="marca">
+            <img src="img/logo.jpg" alt="Logo Hojas & Viñetas" width="44" height="44">
+            <strong class="marca__nombre">Hojas &amp; Viñetas</strong>
+        </div>
+        <nav class="nav">
+            <a class="nav__link activo" href="ticket.html">Ticket</a>
+            <a class="nav__link" href="http://localhost:3000/login">Administración</a>
+            <button class="boton-tema" onclick="cambiarTema()">Cambiar tema</button>
+        </nav>
+    </header>
+
+    <main class="contenedor">
+        <div class="ticket-pagina">
+            <h1>¡Gracias por tu compra!</h1>
+
+            <div class="ticket">
+                <div class="ticket__encabezado">
+                    <img src="img/logo.jpg" alt="" width="48" height="48">
+                    <strong>Hojas &amp; Viñetas</strong>
+                </div>
+                <p>Fecha: <strong id="ticket-fecha"></strong></p>
+                <p>Cliente: <strong id="ticket-cliente"></strong></p>
+
+                <table class="ticket__tabla">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th class="num">Cant.</th>
+                            <th class="num">P. unit.</th>
+                            <th class="num">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ticket-items"></tbody>
+                </table>
+
+                <p class="total">Total: <span id="ticket-total"></span></p>
+            </div>
+
+            <div class="ticket-acciones">
+                <button class="btn btn--secundario" onclick="descargarPdf()">Descargar PDF</button>
+                <button class="btn btn--primario" onclick="reiniciarAutoservicio()">Salir</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="pie">
+        <p><strong>Hojas &amp; Viñetas</strong> - Programación III - UTN</p>
+        <p>Alumnos: Fatima Gonzalez y Nicolas Lista</p>
+    </footer>
+
+    <!-- Libreria para generar el PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/ticket.js"></script>
+</body>
+</html>

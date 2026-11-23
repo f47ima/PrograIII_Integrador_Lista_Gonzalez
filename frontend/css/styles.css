@@ -1,0 +1,483 @@
+/* ===== Colores (los mismos del back office) ===== */
+:root {
+    --fondo: #f7f2ea;
+    --superficie: #ffffff;
+    --superficie-2: #f1e9dd;
+    --texto: #2b2420;
+    --texto-suave: #6f6259;
+    --borde: #e2d6c6;
+    --primario: #7a3e2b;
+    --texto-primario: #ffffff;
+    --verde: #2e7d4f;
+    --verde-fondo: #e3f3e8;
+    --rojo: #b3261e;
+    --sombra: 0 2px 10px rgba(60, 40, 20, 0.08);
+    --radio: 12px;
+}
+
+/* ===== Tema oscuro: solo cambian los colores ===== */
+body.oscuro {
+    --fondo: #1b1714;
+    --superficie: #26201c;
+    --superficie-2: #312a24;
+    --texto: #f3ebe1;
+    --texto-suave: #b5a798;
+    --borde: #40362e;
+    --primario: #e0875f;
+    --texto-primario: #1b1714;
+    --verde: #6fcf97;
+    --verde-fondo: #1f3428;
+    --rojo: #ff8a80;
+    --sombra: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* El body en columna hace que el footer quede siempre abajo */
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--fondo);
+    color: var(--texto);
+    font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.5;
+}
+
+h1, h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    margin: 0 0 0.4rem;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+.texto-suave {
+    color: var(--texto-suave);
+    margin: 0;
+}
+
+.resaltado {
+    color: var(--primario);
+}
+
+.error {
+    color: var(--rojo);
+    font-weight: 600;
+}
+
+/* ===== HEADER ===== */
+.topbar {
+    background-color: var(--superficie);
+    border-bottom: 1px solid var(--borde);
+    box-shadow: var(--sombra);
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-right: auto;
+}
+
+.marca img {
+    border-radius: 10px;
+}
+
+.marca__nombre {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.25rem;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.nav__link {
+    padding: 0.45rem 0.75rem;
+    border-radius: 8px;
+    color: var(--texto);
+    text-decoration: none;
+}
+
+.nav__link:hover {
+    background-color: var(--superficie-2);
+}
+
+.nav__link.activo {
+    background-color: var(--primario);
+    color: var(--texto-primario);
+}
+
+.boton-tema {
+    background-color: var(--superficie-2);
+    color: var(--texto);
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    padding: 0.4rem 0.7rem;
+    font: inherit;
+    cursor: pointer;
+}
+
+/* ===== MAIN ===== */
+.contenedor {
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 3rem;
+}
+
+.tarjeta {
+    background-color: var(--superficie);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+    padding: 1.5rem;
+}
+
+.encabezado-pagina {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1.25rem;
+}
+
+/* ===== BOTONES ===== */
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1.1rem;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    font: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn--primario {
+    background-color: var(--primario);
+    color: var(--texto-primario);
+}
+
+.btn--secundario {
+    background-color: var(--superficie);
+    color: var(--texto);
+    border-color: var(--borde);
+}
+
+.btn--texto {
+    background: none;
+    padding: 0.3rem 0.5rem;
+}
+
+.btn--texto:hover {
+    text-decoration: underline;
+}
+
+.btn--peligro-texto {
+    color: var(--rojo);
+}
+
+/* Selector de cantidad: - 1 + */
+.stepper {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.stepper button {
+    width: 2.2rem;
+    height: 2.2rem;
+    border: 0;
+    background-color: var(--superficie-2);
+    color: var(--texto);
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.stepper span {
+    min-width: 2.2rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* ===== BIENVENIDA ===== */
+.bienvenida {
+    text-align: center;
+    padding-top: 2.5rem;
+}
+
+.bienvenida__form {
+    max-width: 420px;
+    margin: 2rem auto 0;
+    text-align: left;
+}
+
+.bienvenida__form form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.bienvenida__form label {
+    font-weight: 600;
+}
+
+.bienvenida__form input {
+    padding: 0.7rem 0.9rem;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    background-color: var(--fondo);
+    color: var(--texto);
+    font: inherit;
+}
+
+.bienvenida__form .error {
+    margin: 0;
+}
+
+/* ===== PRODUCTOS ===== */
+.tabs {
+    display: inline-flex;
+    gap: 0.25rem;
+    padding: 0.3rem;
+    margin-bottom: 1.25rem;
+    background-color: var(--superficie-2);
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+}
+
+.tab {
+    border: 0;
+    background: none;
+    color: var(--texto);
+    padding: 0.55rem 1.4rem;
+    border-radius: 9px;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.tab.activo {
+    background-color: var(--superficie);
+    color: var(--primario);
+    box-shadow: var(--sombra);
+}
+
+.grilla-productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem;
+}
+
+.producto {
+    width: 260px;
+    background-color: var(--superficie);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+    overflow: hidden;
+}
+
+.producto__imagen {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    background-color: var(--superficie-2);
+    padding: 0.75rem;
+}
+
+.producto__cuerpo {
+    padding: 1rem;
+}
+
+.producto__nombre {
+    font-size: 1.15rem;
+    margin: 0;
+}
+
+.producto__autor {
+    color: var(--texto-suave);
+    margin: 0;
+}
+
+.producto__precio {
+    margin: 0.3rem 0;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--primario);
+}
+
+.producto__acciones {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.producto__en-carrito {
+    margin: 0.6rem 0 0;
+    padding: 0.3rem 0.6rem;
+    border-radius: 8px;
+    background-color: var(--verde-fondo);
+    color: var(--verde);
+}
+
+/* ===== CARRITO ===== */
+.carrito {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+#lista {
+    flex: 1;
+}
+
+#resumen {
+    width: 300px;
+}
+
+.item-carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--superficie);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.item-carrito__nombre {
+    font-size: 1.1rem;
+    margin: 0 0 0.2rem;
+}
+
+.item-carrito__controles {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.4rem;
+}
+
+.vacio {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: var(--superficie);
+    border: 1px dashed var(--borde);
+    border-radius: var(--radio);
+}
+
+.total {
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+/* ===== MODAL ===== */
+.modal {
+    border: 0;
+    border-radius: var(--radio);
+    background-color: var(--superficie);
+    color: var(--texto);
+    padding: 1.5rem;
+    width: 420px;
+}
+
+.modal::backdrop {
+    background-color: rgba(0, 0, 0, 0.55);
+}
+
+.modal__acciones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+}
+
+/* ===== TICKET ===== */
+.ticket-pagina {
+    max-width: 560px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.ticket {
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    text-align: left;
+    background-color: #fffdf8;
+    color: #2b2420;
+    border-top: 6px solid #7a3e2b;
+    border-radius: 6px;
+    box-shadow: var(--sombra);
+    font-family: "Courier New", Courier, monospace;
+}
+
+.ticket__encabezado {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 2px dashed #cbbba6;
+    font-size: 1.15rem;
+}
+
+.ticket__encabezado img {
+    border-radius: 8px;
+}
+
+.ticket__tabla {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ticket__tabla th,
+.ticket__tabla td {
+    padding: 0.45rem 0.25rem;
+    text-align: left;
+    border-bottom: 1px dashed #cbbba6;
+}
+
+.ticket__tabla .num {
+    text-align: right;
+}
+
+.ticket .total {
+    text-align: right;
+}
+
+.ticket-acciones {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+/* ===== FOOTER ===== */
+.pie {
+    background-color: var(--superficie);
+    border-top: 1px solid var(--borde);
+    color: var(--texto-suave);
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+.pie p {
+    margin: 0.2rem 0;
+}

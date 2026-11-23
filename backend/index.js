@@ -27,7 +27,7 @@ app.set("view engine", "ejs")
 app.set("views", join(__dirname, "src/views"))
 app.use(express.static(join(__dirname, "src/public")))
 
-app.get("/", (req, res) => res.send("API de Hojas & Viñetas"))
+app.get("/", (req, res) => res.redirect("/login"))
 
 app.use("/", authRoutes)
 app.use("/dashboard", requiereAdmin, viewRoutes)
