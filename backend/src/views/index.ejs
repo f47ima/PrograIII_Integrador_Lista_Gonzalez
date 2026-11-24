@@ -13,13 +13,13 @@
                 <div class="card-producto">
                     <img class="card-img" src="<%= producto.image %>" alt="<%= producto.name %>">
                     <h4><%= producto.name %></h4>
-                    <p><%= producto.author %></p>
-                    <p>Id: <%= producto.id %></p>
-                    <p>$ <%= producto.price %></p>
-                    <!-- Operador ternario: si active es 1 muestra "Activo", si es 0 "Inactivo" -->
-                    <p>Estado: <%= producto.active ? "Activo" : "Inactivo" %></p>
+                    <p class="card-autor"><%= producto.author %></p>
+                    <p class="card-id">Id: <%= producto.id %></p>
+                    <p class="card-precio">$ <%= Number(producto.price).toLocaleString("es-AR") %></p>
+                    <span class="badge <%= producto.active ? 'activo' : 'inactivo' %>">
+                        <%= producto.active ? "Activo" : "Inactivo" %>
+                    </span>
                 </div>
-
             <% }) %>
 
         </section>
@@ -29,14 +29,15 @@
         <section class="contenedor-productos">
 
             <% comics.forEach(producto => { %>
-
                 <div class="card-producto">
                     <img class="card-img" src="<%= producto.image %>" alt="<%= producto.name %>">
                     <h4><%= producto.name %></h4>
-                    <p><%= producto.author %></p>
-                    <p>Id: <%= producto.id %></p>
-                    <p>$ <%= producto.price %></p>
-                    <p>Estado: <%= producto.active ? "Activo" : "Inactivo" %></p>
+                    <p class="card-autor"><%= producto.author %></p>
+                    <p class="card-id">Id: <%= producto.id %></p>
+                    <p class="card-precio">$ <%= Number(producto.price).toLocaleString("es-AR") %></p>
+                    <span class="badge <%= producto.active ? 'activo' : 'inactivo' %>">
+                        <%= producto.active ? "Activo" : "Inactivo" %>
+                    </span>
                 </div>
 
             <% }) %>

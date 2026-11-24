@@ -59,8 +59,10 @@ function mostrarProductos() {
                         </div>
                         <button class="btn btn--primario" onclick="agregarAlCarrito(${producto.id})">Agregar</button>
                     </div>
-                    <p class="producto__en-carrito">En el carrito: ${enCarrito}</p>
-                    <button class="btn btn--texto btn--peligro-texto" onclick="quitarDelCarrito(${producto.id})">Quitar</button>
+                    <div class="producto__fila-carrito">
+                        <p class="producto__en-carrito">En el carrito: ${enCarrito}</p>
+                        ${enCarrito > 0 ? `<button class="btn btn--texto btn--peligro-texto" onclick="quitarDelCarrito(${producto.id})">Quitar</button>` : ""}
+                    </div>
                 </div>
             </div>
         `;

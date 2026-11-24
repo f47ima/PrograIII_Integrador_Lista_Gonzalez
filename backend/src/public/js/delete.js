@@ -39,10 +39,12 @@ function renderizarProducto(producto) {
         <div class="card-producto">
             <img class="card-img" src="${producto.image}" alt="${producto.name}">
             <h4>${producto.name}</h4>
-            <p>${producto.author}</p>
-            <p>Id: ${producto.id}</p>
-            <p>$ ${producto.price}</p>
-            <p>Estado: ${producto.active ? "Activo" : "Inactivo"}</p>
+            <p class="card-autor">${producto.author}</p>
+            <p class="card-id">Id: ${producto.id}</p>
+            <p class="card-precio">$ ${Number(producto.price).toLocaleString("es-AR")}</p>
+            <span class="badge ${producto.active ? "activo" : "inactivo"}">
+                ${producto.active ? "Activo" : "Inactivo"}
+            </span>
             <button id="btn-eliminar">Eliminar</button>
         </div>
     `;

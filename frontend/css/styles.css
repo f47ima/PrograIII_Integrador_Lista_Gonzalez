@@ -337,6 +337,18 @@ h1 {
     color: var(--verde);
 }
 
+.producto__fila-carrito {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-top: 0.6rem;
+}
+
+.producto__fila-carrito .producto__en-carrito {
+    margin: 0;
+}
+
 /* ===== CARRITO ===== */
 .carrito {
     display: flex;
@@ -480,4 +492,18 @@ h1 {
 
 .pie p {
     margin: 0.2rem 0;
+}
+
+@media (max-width: 768px) {
+    .carrito {
+        flex-direction: column;
+    }
+
+    #resumen {
+        width: 100%;
+    }
+
+    .topbar {
+        flex-wrap: wrap;
+    }
 }

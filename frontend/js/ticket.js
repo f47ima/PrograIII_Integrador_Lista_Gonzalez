@@ -8,6 +8,7 @@ if (ticket === null) {
 }
 
 function mostrarTicket() {
+    document.getElementById("ticket-numero").textContent = ticket.numero;
     document.getElementById("ticket-fecha").textContent = ticket.fecha;
     document.getElementById("ticket-cliente").textContent = ticket.cliente;
     document.getElementById("ticket-total").textContent = formatearPrecio(ticket.total);
@@ -36,6 +37,8 @@ function descargarPdf() {
 
     doc.setFontSize(12);
     y += 10;
+    doc.text("Ticket N°: " + ticket.numero, 20, y);
+    y += 8;  
     doc.text("Fecha: " + ticket.fecha, 20, y);
     y += 8;
     doc.text("Cliente: " + ticket.cliente, 20, y);
@@ -51,5 +54,5 @@ function descargarPdf() {
     doc.setFontSize(14);
     doc.text("Total: " + formatearPrecio(ticket.total), 20, y);
 
-    doc.save("ticket.pdf");
+    doc.save("ticket-" + ticket.numero + ".pdf");
 }

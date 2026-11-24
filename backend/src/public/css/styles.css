@@ -214,3 +214,135 @@ footer p {
 .btn-logout:hover {
     background-color: var(--superficie-2);
 }
+
+/* ===== FORMULARIOS DEL DASHBOARD ===== */
+main > h3,
+.contenedor-form h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.4rem;
+    text-align: center;
+    margin: 0 0 1rem;
+}
+
+.form-admin {
+    max-width: 420px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: var(--superficie);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+    padding: 1.5rem;
+}
+
+.form-admin label {
+    font-weight: 600;
+    margin-top: 0.4rem;
+}
+
+.form-admin input[type="text"],
+.form-admin input[type="number"],
+.form-admin select {
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    font: inherit;
+    background-color: var(--fondo);
+}
+
+.form-admin input:focus,
+.form-admin select:focus {
+    outline: 2px solid var(--primario);
+    outline-offset: 1px;
+}
+
+.form-admin input[type="submit"] {
+    margin-top: 0.8rem;
+    padding: 0.65rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primario);
+    color: #fff;
+    font: inherit;
+    cursor: pointer;
+}
+
+.form-admin input[type="submit"]:hover {
+    opacity: 0.9;
+}
+
+/* Botones Modificar / Eliminar dentro de la card */
+.card-producto button {
+    margin-top: 0.5rem;
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primario);
+    color: #fff;
+    font: inherit;
+    cursor: pointer;
+}
+
+#btn-eliminar {
+    background-color: #b3261e;
+}
+
+/* Mensajes centrados debajo del formulario */
+.contenedor-productos .mensaje {
+    max-width: 420px;
+    width: 100%;
+}
+
+/* Títulos de sección: Libros / Cómics */
+main > h2 {
+    border-bottom: 2px solid var(--borde);
+    padding-bottom: 0.3rem;
+    margin: 1.5rem 0 1rem;
+}
+
+/* ===== DETALLES DE LA CARD ===== */
+.card-producto h4 {
+    margin: 0.6rem 0 0.2rem;
+}
+
+.card-producto p {
+    margin: 0.2rem 0;
+}
+
+.card-autor {
+    color: var(--texto-suave);
+    font-size: 0.9rem;
+}
+
+.card-id {
+    color: var(--texto-suave);
+    font-size: 0.75rem;
+}
+
+.card-precio {
+    color: var(--primario);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.badge {
+    display: inline-block;
+    margin-top: 0.4rem;
+    padding: 0.15rem 0.6rem;
+    border-radius: 99px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.activo {
+    background-color: #e3f3e8;
+    color: #2e7d4f;
+}
+
+.inactivo {
+    background-color: #fbe5e3;
+    color: #b3261e;
+}
