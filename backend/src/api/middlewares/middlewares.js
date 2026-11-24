@@ -66,7 +66,6 @@ const requiereAdmin = (req, res, next) => {
     res.redirect("/login");
 }
 
-
 // Middleware de ruta: si ya hay sesion, no tiene sentido mostrar el login
 const soloInvitados = (req, res, next) => {
     if (req.session.usuario) return res.redirect("/dashboard/principal");

@@ -7,12 +7,11 @@ import { productRoutes, viewRoutes, authRoutes, userRoutes, saleRoutes } from ".
 import { __dirname, join } from "./src/api/utils/index.js";
 
 const app = express();
-app.use(cors());
-app.use(loggerUrl);
+app.use(cors()); //-> Peticiones cruzadas
+app.use(loggerUrl); //->Tira que esta pasando 
 const { port, sessionSecret } = environments;
-app.use(express.json());
-// Para leer los datos que manda el formulario de login
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); //-> establece que va a recibir json 
+app.use(express.urlencoded({ extended: true })); //-> Para leer los datos que manda el formulario de login
 app.use(session({
     secret: sessionSecret,
     resave: false,
