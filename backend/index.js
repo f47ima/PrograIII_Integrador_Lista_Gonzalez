@@ -3,7 +3,7 @@ import session from "express-session";
 import environments from "./src/api/config/environments.js";
 import cors from "cors";
 import { loggerUrl, requiereAdmin } from "./src/api/middlewares/middlewares.js";
-import { productRoutes, viewRoutes, authRoutes, userRoutes } from "./src/api/routes/index.js";
+import { productRoutes, viewRoutes, authRoutes, userRoutes, saleRoutes } from "./src/api/routes/index.js";
 import { __dirname, join } from "./src/api/utils/index.js";
 
 const app = express();
@@ -34,6 +34,7 @@ app.use("/dashboard", requiereAdmin, viewRoutes)
 
 app.use("/api/products", productRoutes)
 app.use("/api/users", userRoutes)
+app.use("/api/sales", saleRoutes)
 
 app.listen(port,() => {
     console.log(`Servidor corriendo en http://localhost:${port}`);

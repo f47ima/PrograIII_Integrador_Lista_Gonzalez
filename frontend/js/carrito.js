@@ -80,20 +80,54 @@ function cerrarModal() {
     modal.close();
 }
 
-function confirmarCompra() {
+async function confirmarCompra() {
     const carrito = obtenerCarrito();
+    const nombre = localStorage.getItem("nombre");
+    const total = calcularTotal(carrito);
 
-    // El ticket es solo informativo: se arma con los datos del carrito
-    const ticket = {
-        cliente: localStorage.getItem("nombre"),
-        fecha: new Date().toLocaleString("es-AR"),
-        items: carrito,
-        total: calcularTotal(carrito)
-    };
+    const products = [];
+    carrito.forEach((item) => {
+        for (let i = 0; i < item.cantidad; i++) {
+            products.push(item.id);
+        }
+    });
 
-    localStorage.setItem("ticket", JSON.stringify(ticket));
-    localStorage.removeItem("carrito");
-    window.location.href = "ticket.html";
+    try {
+        const respuesta = await fetch(API_URL + "/api/sales", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                user_name: nombre,
+                total_price: total,
+                products: products
+            })
+        });
+
+        const datos = await respuesta.json();
+
+        if (!respuesta.ok) {
+            cerrarModal();
+            alert(datos.message);
+            return;
+        }
+
+        const ticket = {
+            numero: datos.saleId,
+            cliente: nombre,
+            fecha: new Date().toLocaleString("es-AR"),
+            items: carrito,
+            total: total
+        };
+
+        localStorage.setItem("ticket", JSON.stringify(ticket));
+        localStorage.removeItem("carrito");
+        window.location.href = "ticket.html";
+
+    } catch (error) {
+        console.log("Error registrando la venta: ", error);
+        cerrarModal();
+        alert("No se pudo registrar la venta. Verificá que el servidor esté encendido.");
+    }
 }
 
 mostrarCarrito();
