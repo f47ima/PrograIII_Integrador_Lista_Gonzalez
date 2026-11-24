@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrito | Hojas &amp; Viñetas</title>
+    <link rel="icon" type="image/jpeg" href="img/logo.jpg">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="marca">
+            <img src="img/logo.jpg" alt="Logo Hojas & Viñetas" width="44" height="44">
+            <strong class="marca__nombre">Hojas &amp; Viñetas</strong>
+        </div>
+        <nav class="nav">
+            <a class="nav__link" href="productos.html">Productos</a>
+            <a class="nav__link activo" href="carrito.html">Carrito</a>
+            <a class="nav__link" href="http://localhost:3000/login">Administración</a>
+            <button class="boton-tema" onclick="cambiarTema()">Cambiar tema</button>
+        </nav>
+    </header>
+
+    <main class="contenedor">
+        <div class="encabezado-pagina">
+            <div>
+                <h1>Tu carrito</h1>
+                <p class="texto-suave">Revisá las cantidades antes de finalizar la compra.</p>
+            </div>
+            <a class="btn btn--secundario" href="productos.html">Seguir comprando</a>
+        </div>
+
+        <div class="carrito">
+            <div id="lista"></div>
+
+            <div id="resumen" class="tarjeta">
+                <h2>Resumen</h2>
+                <p>Cliente: <strong id="resumen-cliente"></strong></p>
+                <p class="total">Total: <span id="resumen-total"></span></p>
+                <button class="btn btn--primario" onclick="abrirModal()">Finalizar compra</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal para confirmar la compra -->
+    <dialog id="modal-confirmar" class="modal">
+        <h2>¿Confirmar la compra?</h2>
+        <p>Total a pagar: <strong id="total-modal"></strong></p>
+        <div class="modal__acciones">
+            <button class="btn btn--secundario" onclick="cerrarModal()">Volver</button>
+            <button class="btn btn--primario" onclick="confirmarCompra()">Confirmar compra</button>
+        </div>
+    </dialog>
+
+    <footer class="pie">
+        <p><strong>Hojas &amp; Viñetas</strong> - Programación III - UTN</p>
+        <p>Alumnos: Fatima Gonzalez y Nicolas Lista</p>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/carrito.js"></script>
+</body>
+</html>
